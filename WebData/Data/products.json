@@ -1,0 +1,39 @@
+[
+  {
+    "product-id": 1,
+    "product-name": "MEN'S JACKET",
+    "product-image-url": "http://images.thenorthface.com/is/image/TheNorthFace/236x204_CLR/mens-better-than-naked-jacket-AVMH_LC9_hero.png",
+    "product-price": 90
+  },
+  {
+    "product-id": 2,
+    "product-name": "WOMEN'S JACKET",
+    "product-image-url": "http://images.thenorthface.com/is/image/TheNorthFace/236x204_CLR/womens-better-than-naked-jacket-AVKL_NN4_hero.png",
+    "product-price": 90
+  },
+  {
+    "product-id": 3,
+    "product-name": "WOMEN'S SINGLE-TRACK SHOE",
+    "product-image-url": "http://images.thenorthface.com/is/image/TheNorthFace/236x204_CLR/womens-single-track-shoe-ALQF_JM3_hero.png",
+    "product-price": 50
+  },
+  {
+    "product-id": 4,
+    "product-name": "Enduro Hydration Pack",
+    "product-image-url": "http://images.thenorthface.com/is/image/TheNorthFace/236x204_CLR/enduro-boa-hydration-pack-AJQZ_JK3_hero.png",
+    "product-price": 65
+  },
+
+  {
+    "product-id": 5,
+    "product-name": "KNIT SKI GLOVES M",
+    "product-image-url": "https://images.thenorthface.com/is/image/TheNorthFaceEU/4SH2_JK3_hero?wid=1250&hei=1250&fmt=jpg&qlt=85,1&op_sharpen=0&resMode=sharp2&op_usm=1,1,1,0",
+    "product-price": 35
+  },
+  {
+    "product-id": 6,
+    "product-name": "POM BEANIE RETRO TNF",
+    "product-image-url": "https://images.thenorthface.com/is/image/TheNorthFaceEU/4SIE_0WY_hero?wid=1250&hei=1250&fmt=jpg&qlt=85,1&op_sharpen=0&resMode=sharp2&op_usm=1,1,1,0",
+    "product-price": 30
+  }
+  ]

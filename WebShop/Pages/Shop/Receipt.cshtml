@@ -1,0 +1,341 @@
+﻿@page
+@model WebShop.Pages.Shop.ReceiptModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Simple invoice in ASP.NET</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: #ccc;
+            font-family: Verdana;
+        }
+
+        header {
+            margin-top: 40px;
+        }
+
+        footer {
+            background-color: #ffffff;
+        }
+
+        div.invoice {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            height: 802pt;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            width: 595pt;
+        }
+
+        div.company-address {
+            border: 1px solid #ccc;
+            float: left;
+            width: 200pt;
+        }
+
+        div.invoice-details {
+            border: 1px solid #ccc;
+            float: right;
+            width: 200pt;
+        }
+
+        div.customer-address {
+            border: 1px solid #ccc;
+            float: right;
+            margin-bottom: 50px;
+            margin-top: 100px;
+            width: 200pt;
+        }
+
+        div.item-table-panel {
+            height: 460pt;
+        }
+
+        div.clear-fix {
+            clear: both;
+            float: none;
+        }
+
+        table.item-table {
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        table.footer-table {
+            border: 1px solid #ccc;
+            margin-top: 20pt;
+            bottom: 0;
+            width: 100%;
+        }
+
+        th {
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+            th.description {
+                width: 380px;
+            }
+
+            th.amount {
+                text-align: center;
+                width: 80px;
+            }
+
+            th.unit-price {
+                text-align: right;
+                width: 100px;
+            }
+
+            th.total-price {
+                text-align: right;
+                width: 100px;
+            }
+
+        tr {
+        }
+
+        td {
+            border-bottom: 1px solid #ccc;
+        }
+
+            td.totals {
+                background-color: #ffffff;
+                text-align: right;
+                width: 110px;
+            }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+    </style>
+    <style type="text/css" media="print">
+        body {
+            background-color: #ffffff;
+            font-family: Verdana;
+        }
+
+        header {
+            margin-top: 40px;
+        }
+
+        footer {
+            background-color: #ffffff;
+        }
+
+        div.invoice {
+            background-color: #ffffff;
+            border: none;
+            height: 802pt;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 10px;
+            width: 595pt;
+        }
+
+        div.company-address {
+            border: 1px solid #ccc;
+            float: left;
+            width: 200pt;
+        }
+
+        div.invoice-details {
+            border: 1px solid #ccc;
+            float: right;
+            width: 200pt;
+        }
+
+        div.customer-address {
+            border: 1px solid #ccc;
+            float: right;
+            margin-bottom: 50px;
+            margin-top: 100px;
+            width: 200pt;
+        }
+
+        div.item-table-panel {
+            height: 460pt;
+        }
+
+        div.clear-fix {
+            clear: both;
+            float: none;
+        }
+
+        table.item-table {
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        table.footer-table {
+            border: 1px solid #ccc;
+            margin-top: 20pt;
+            bottom: 0;
+            width: 100%;
+        }
+
+        th {
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+            th.description {
+                width: 380px;
+            }
+
+            th.amount {
+                text-align: center;
+                width: 80px;
+            }
+
+            th.unit-price {
+                text-align: right;
+                width: 100px;
+            }
+
+            th.total-price {
+                text-align: right;
+                width: 100px;
+            }
+
+        tr {
+        }
+
+        td {
+            border-bottom: 1px solid #ccc;
+        }
+
+            td.totals {
+                background-color: #ffffff;
+                text-align: right;
+                width: 110px;
+            }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="invoice">
+            <header>
+                <div class="company-address">
+                    Company KYH
+                    <br />
+                    KYH Nacka
+                    <br />
+                    Stockholm,
+                    <br />
+                    Sverige
+                    <br />
+                </div>
+                <div class="invoice-details">
+                    Invoice N°: 6541
+                    <br />
+                    @DateTime.Now
+                </div>
+            </header>
+            <section>
+                <div class="customer-address">
+                    To:
+                    <br />
+                    @Model.currentOrder.FullName
+                    <br />
+                    @Model.currentOrder.ShippingAddress.Address
+                    <br />
+                    @(Model.currentOrder.ShippingAddress.PostCode + ", " + @Model.currentOrder.ShippingAddress.City)
+                    <br />
+                    @Model.currentOrder.ShippingAddress.Country
+                    <br />
+                </div>
+            </section>
+            <div class="clear-fix"></div>
+            <section>
+                <div class="item-table-panel">
+                    <table border='0' cellspacing='0' class="item-table">
+                        <tr>
+                            <th class="description">Description</th>
+                            <th class="amount">Amount</th>
+                            <th class="unit-price">Unit price</th>
+                            <th class="total-price">Total price</th>
+                        </tr>
+                        @foreach (var item in Model.currentOrder.Orders)
+                        {
+                            <tr>
+
+                                <td>@item.Product.ProductName</td>
+
+                                <td class="text-center">@item.Quantity</td>
+
+                                <td class='text-right'>@(item.Quantity * item.Product.ProductPrice)</td>
+
+                                <td class='text-right'></td>
+
+                            </tr>
+                        }
+                        <tr>
+
+                            <td></td>
+
+                            <td class="text-center"></td>
+
+                            <td class='text-right'></td>
+
+                            <td class='text-right'>@Model.currentOrder.Total</td>
+
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <footer>
+                <table border='0' cellspacing='0' class="footer-table">
+                    
+                    <tr>
+                        
+                        <td class='text-right'>Sub total</td>
+                        <td class='totals'>@Model.currentOrder.Total</td>
+                       
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td class='text-right'>VAT</td>
+                        <td class='totals'>No VAT</td>
+                    </tr>
+                    <tr>
+                        
+                        <td class='text-right'><b>TOTAL</b></td>
+                        <td class='totals'><b>@Model.currentOrder.Total</b></td>
+                        
+                    </tr>
+                   
+                </table>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

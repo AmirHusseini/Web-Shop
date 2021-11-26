@@ -1,0 +1,104 @@
+﻿@page
+@model WebShop.Pages.Shop.PaymentModel
+@{
+}
+<div class="content-wrapper">
+    <div class="container">
+        <div class="col-12 col-lg-12">
+            <div role="alert" class="alert alert-info fade in">
+                <button data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <strong>Login Alert!</strong> You must login to proceed.
+            </div>
+            <div class="checkout-wrapper">
+                <form method="post" asp-page="payment" asp-page-handler="order">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3>Billing Address</h3>
+                            <div class="row">
+                                <div class="col-12 col-lg-6"><label class="required">First Name</label><input type="text" name="firstname" class="form-control"></div>
+                                <div class="col-12 col-lg-6"><label>Last Name</label> <input type="text" name="lastname" class="form-control"></div>
+                                <div class="col-12"> <label class="required">Address</label> <input type="text" name="address" class="form-control"></div>
+                                <div class="col-12 col-lg-6"> <label class="required">Town/City</label> <input type="text" name="city" class="form-control"></div>
+                                <div class="col-12 col-lg-6"> <label class="required">Post Code</label> <input type="text" name="postcode" class="form-control"></div>
+                                <div class="col-12"> <label class="required">Country</label> <input type="text" name="country" class="form-control"></div>
+                                <div class="col-12 col-lg-6"> <label class="required">Email Address</label> <input type="text" name="emailaddress" class="form-control"></div>
+                                <div class="col-12 col-lg-6"> <label class="required">Tel/Mob</label> <input type="text" name="tel" class="form-control"></div>
+                                <div class="col-12">
+                                    <label for="myCheck">Become a Member:</label>
+                                    <input type="checkbox" id="IsChecked" name="IsChecked" onclick="myFunction()">
+                                    <label class="required" id="text"  style="display:none">Password</label><input id="text1" name="password" style="display:none" type="password" class="form-control">
+                                </div>
+                                <div class="col-12">
+
+                                    <label class="required" id="text2" name="confirmpassword" style="display:none">Confirm Password</label><input id="text3" style="display:none" type="password" class="form-control">
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h4>Your Order Details are as follows:</h4><table class="table table-bordered table-striped">
+                                <colgroup>
+                                    <col class="col-5">
+                                    <col class="col-6">
+                                    <col class="col-1">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.cart)
+                                    {
+                                        <tr>
+                                            <td>@item.Product.ProductName</td>
+                                            <td>@item.Quantity</td>
+                                            <td>$@(item.Product.ProductPrice * item.Quantity)</td>
+                                        </tr>
+                                    }
+
+
+                                    <tr>
+                                        <td></td>
+                                        <td>Grand Total</td>
+                                        <td>@Model.total</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-right"> <button class="btn btn-secondary" type="submit">Place Order</button></div>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="col-12 col-md-6">
+    <h3>Additional Information</h3>
+    <div class="row"><div class="col-12"> <label class="required">Order Notes</label> <input type="text" class="form-control" placeholder="Notes about your order, e.g. special notes for delivery."></div></div>
+</div>-->
+<script>
+    function myFunction() {
+        var checkBox = document.getElementById("IsChecked");
+        var text = document.getElementById("text");
+        var text1 = document.getElementById("text1");
+        var text2 = document.getElementById("text2");
+        var text3 = document.getElementById("text3");
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+            text1.style.display = "block";
+            text2.style.display = "block";
+            text3.style.display = "block";
+        } else {
+            text.style.display = "none";
+            text1.style.display = "none";
+            text2.style.display = "none";
+            text3.style.display = "none";
+        }
+    }
+</script>

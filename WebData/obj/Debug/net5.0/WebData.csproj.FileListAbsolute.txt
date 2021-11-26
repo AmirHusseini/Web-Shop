@@ -1,0 +1,15 @@
+C:\Users\husse\source\repos\WebShop\WebData\bin\Debug\net5.0\WebData.deps.json
+C:\Users\husse\source\repos\WebShop\WebData\bin\Debug\net5.0\WebData.dll
+C:\Users\husse\source\repos\WebShop\WebData\bin\Debug\net5.0\ref\WebData.dll
+C:\Users\husse\source\repos\WebShop\WebData\bin\Debug\net5.0\WebData.pdb
+C:\Users\husse\source\repos\WebShop\WebData\bin\Debug\net5.0\WebModel.dll
+C:\Users\husse\source\repos\WebShop\WebData\bin\Debug\net5.0\WebModel.pdb
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.csproj.AssemblyReference.cache
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.AssemblyInfoInputs.cache
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.AssemblyInfo.cs
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.csproj.CoreCompileInputs.cache
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.csproj.CopyComplete
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.dll
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\ref\WebData.dll
+C:\Users\husse\source\repos\WebShop\WebData\obj\Debug\net5.0\WebData.pdb

@@ -1,0 +1,58 @@
+﻿@page
+@model WebShop.Pages.Shop.MainModel
+@{
+}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Album example</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <p>
+                <a asp-page="Login" class="btn btn-primary my-2">Login</a>
+                <a asp-page="Login" class="btn btn-secondary my-2">Check My Orders</a>
+            </p>
+        </div>
+    </div>
+</section>
+<form method="post" asp-page-handler="Search" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" asp-for="@Model.Product" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+@Model.Msg
+<form method="post" asp-page-handler="Sort" class="form-inline my-2 my-lg-0">
+    <select name="number" onchange="this.form.submit();">
+        <option value="">Sort By</option>
+        <option value="1">Highest</option>
+        <option value="2">Lowest</option>
+        <option value="3">Three</option>
+    </select>
+</form>
+<div class="card-columns">
+    @foreach (var item in Model.products)
+    {
+        <div class="col">
+            <a asp-page="ProductView" asp-route-ID="@item.ProductId">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="@item.ProductImgUrl" alt="Card image cap">
+
+                    <div class="card-body">
+                        <p class="card-text">@item.ProductName</p>
+                        <p class="card-text">$ @item.ProductPrice</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                @*<a type="button" class="btn btn-sm btn-outline-secondary">View</a>*@
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    }
+
+</div>
+
+
+

@@ -1,0 +1,44 @@
+﻿@page
+@model WebShop.Pages.Shop.LoginModel
+@{
+}
+<h4>@Model.Currentorder.FullName</h4>
+
+<div class="col-12 col-md-6">
+    <h4>Your Order Details are as follows:</h4><table class="table table-bordered table-striped">
+        <colgroup>
+            <col class="col-5">
+            <col class="col-6">
+            <col class="col-1">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.Currentorder.Orders)
+            {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>$@(item.Product.ProductPrice * item.Quantity)</td>
+                    <td>
+                        <div class="btn-outline-secondary"><button>Edit Product</button></div>
+                    </td>
+                </tr>
+            }
+
+
+            <tr>
+                <td></td>
+                <td>Total</td>
+                <td>@Model.Currentorder.Total</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-right"> <button class="btn btn-secondary" type="submit">Print Receip</button></div>
+</div>
