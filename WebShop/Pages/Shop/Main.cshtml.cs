@@ -31,7 +31,7 @@ namespace WebShop.Pages.Shop
 
         public void OnGet()
         {
-            products = Sort();
+            products = webmockdata.GetAll();
         }
         public IActionResult OnPost()
         {
