@@ -21,17 +21,28 @@ namespace WebShop.Pages.Shop
         [BindProperty]
         public string Product { get; set; }
         public string Msg { get; set; }
-        [BindProperty]
-        public string number { get; set; }
+
         public MainModel(IDataSource<Product> _webmockdata)
         {
             webmockdata = _webmockdata;
             
         }
 
-        public void OnGet()
+        public void OnGet(string sort)
         {
-            products = webmockdata.GetAll();
+            if (sort == null)
+            {
+                products = webmockdata.GetAll().ToList();
+
+            }
+            else if (sort == "Highest")
+            {
+                products = webmockdata.GetAll().OrderByDescending(s => s.ProductPrice).ToList();
+            }
+            else if (sort == "Lowest")
+            {
+                products = webmockdata.GetAll().OrderBy(s => s.ProductPrice).ToList();
+            }
         }
         public IActionResult OnPost()
         {
@@ -55,35 +66,7 @@ namespace WebShop.Pages.Shop
             }
             return RedirectToPage("Main");
         }
-        public List<Product> Sort()
-        {
-            var productz = webmockdata.GetAll().ToList();
-
-            var order = number;
-
-            //var productz = from s in products
-            //               select s;
-            switch (order)
-            {
-                case "1":
-                    //productz = productz.OrderByDescending(s => s.ProductPrice);
-                    productz = productz.OrderByDescending(s => s.ProductPrice).ToList();
-                    break;
-                case "2":
-                    //productz = productz.OrderBy(s => s.ProductPrice);
-                    productz = productz.OrderBy(s => s.ProductPrice).ToList();
-                    break;
-                case null:
-                    //productz = productz.OrderBy(s => s.ProductPrice);
-                    productz = products.OrderBy(s => s.ProductId).ToList();
-                    break;
-                default:
-                    productz = products.OrderBy(s => s.ProductId).ToList();
-                    //productz = productz.OrderBy(s => s.ProductId);
-                    break;
-            }
-            return productz;
-        }
+        
 
     }
 }
