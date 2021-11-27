@@ -19,14 +19,17 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
 @Model.Msg
-<form method="post" asp-page-handler="Sort" class="form-inline my-2 my-lg-0">
-    <select name="number" onchange="this.form.submit();">
-        <option value="">Sort By</option>
-        <option value="1">Highest</option>
-        <option value="2">Lowest</option>
-        <option value="3">Three</option>
-    </select>
-</form>
+<div class="btn-group dropright">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort By
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" asp-page="Main" asp-route-sort="Highest">Highest</a>
+        <a class="dropdown-item" asp-page="Main" asp-route-sort="Lowest">Lowest</a>
+        <a class="dropdown-item" asp-page="Main" asp-route-sort="Physical">Physical</a>
+        <a class="dropdown-item" asp-page="Main" asp-route-sort="Digital">Digital</a>
+    </div>
+</div>
 <div class="card-columns">
     @foreach (var item in Model.products)
     {
