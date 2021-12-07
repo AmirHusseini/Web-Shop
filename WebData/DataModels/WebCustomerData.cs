@@ -26,16 +26,21 @@ namespace WebData.DataModels
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Product> Sort(string sort)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Write(Customer ts)
         {
             var all = Loadproducts();
             all.Add(ts);
             var customer = JsonConvert.SerializeObject(all);
-            File.WriteAllText(@"C:\Users\husse\source\repos\WebShop\WebData\Data\Members.json", customer);
+            File.WriteAllText(@"C:\Users\husse\Documents\GitHub\Web-Shop\WebData\Data\Members.json", customer);
         }
         private List<Customer> Loadproducts()
         {
-            var path = @"C:\Users\husse\source\repos\WebShop\WebData\Data\Members.json";
+            var path = @"C:\Users\husse\Documents\GitHub\Web-Shop\WebData\Data\Members.json";
             var jsonResponse = File.ReadAllText(path);
             var customers = JsonConvert.DeserializeObject<List<Customer>>(jsonResponse);
             return customers.ToList();

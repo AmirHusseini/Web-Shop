@@ -30,19 +30,8 @@ namespace WebShop.Pages.Shop
 
         public void OnGet(string sort)
         {
-            if (sort == null)
-            {
-                products = webmockdata.GetAll().ToList();
-
-            }
-            else if (sort == "Highest")
-            {
-                products = webmockdata.GetAll().OrderByDescending(s => s.ProductPrice).ToList();
-            }
-            else if (sort == "Lowest")
-            {
-                products = webmockdata.GetAll().OrderBy(s => s.ProductPrice).ToList();
-            }
+            products = webmockdata.Sort(sort);
+            
         }
         public IActionResult OnPost()
         {
@@ -66,7 +55,7 @@ namespace WebShop.Pages.Shop
             }
             return RedirectToPage("Main");
         }
-        
 
+        
     }
 }

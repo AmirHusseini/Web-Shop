@@ -2,60 +2,67 @@
 @model WebShop.Pages.Shop.MainModel
 @{
 }
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
+
+<div class="py-4 ">
+    <div class=" py-4 row py-lg-5 text-center jumbotron">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Album example</h1>
             <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
             <p>
-                <a asp-page="Login" class="btn btn-primary my-2">Login</a>
+                <a asp-page="/Shop/Login" class="btn btn-primary my-2">Login</a>
                 <a asp-page="Login" class="btn btn-secondary my-2">Check My Orders</a>
             </p>
         </div>
     </div>
-</section>
-<form method="post" asp-page-handler="Search" class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" asp-for="@Model.Product" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
-@Model.Msg
-<div class="btn-group dropright">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sort By
-    </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" asp-page="Main" asp-route-sort="Highest">Highest</a>
-        <a class="dropdown-item" asp-page="Main" asp-route-sort="Lowest">Lowest</a>
-        <a class="dropdown-item" asp-page="Main" asp-route-sort="Physical">Physical</a>
-        <a class="dropdown-item" asp-page="Main" asp-route-sort="Digital">Digital</a>
+</div>
+    
+<div class="row">
+    <div class="col-12">
+        <div class="float-left btn-group dropright border-bottom mb-4">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort By
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="Highest">Highest</a>
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="Lowest">Lowest</a>
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="Physical">Physical</a>
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="men's clothing">Men's Clothes</a>
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="electronics">Electronics</a>
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="jewelery">Jewelery</a>
+                <a class="dropdown-item" asp-page="Main" asp-route-sort="women's clothing">Women's Clothes</a>
+            </div>
+        </div>
+        <div class="float-right">
+            <form method="post" asp-page-handler="Search" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" asp-for="@Model.Product" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            @Model.Msg
+
+        </div>
     </div>
 </div>
-<div class="card-columns">
-    @foreach (var item in Model.products)
-    {
-        <div class="col">
-            <a asp-page="ProductView" asp-route-ID="@item.ProductId">
-                <div class="card shadow-sm">
-                    <img class="card-img-top" src="@item.ProductImgUrl" alt="Card image cap">
+<div class="row">
+        @foreach (var item in Model.products)
+        {
+            <div class="col-lg-3 mb-3 d-flex ">
 
-                    <div class="card-body">
-                        <p class="card-text">@item.ProductName</p>
-                        <p class="card-text">$ @item.ProductPrice</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                @*<a type="button" class="btn btn-sm btn-outline-secondary">View</a>*@
+                <div class="card">
 
-                            </div>
+                    <a class="text-body" asp-page="ProductView" asp-route-ID="@item.ProductId">
+                    <img src="@item.ProductImgUrl" class="card-img-top img-fluid" style="width: 18rem; height: 20rem;" alt="Card Image">
 
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProductName</h5>
+                            <p class="card-text text-center">$ @item.ProductPrice</p>
                         </div>
-                    </div>
+                    
+                </a>
+
                 </div>
-            </a>
-        </div>
-
-    }
-
+            
+            </div>
+           
+        }
 </div>
-
-
 

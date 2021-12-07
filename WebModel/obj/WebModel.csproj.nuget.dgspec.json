@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\WebModel.csproj": {}
+    "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\WebModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\WebModel.csproj": {
+    "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\WebModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\WebModel.csproj",
+        "projectUniqueName": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\WebModel.csproj",
         "projectName": "WebModel",
-        "projectPath": "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\WebModel.csproj",
+        "projectPath": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\WebModel.csproj",
         "packagesPath": "C:\\Users\\husse\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\obj\\",
+        "outputPath": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

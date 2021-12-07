@@ -26,19 +26,22 @@ namespace WebData.Data
             return Loadproducts().FirstOrDefault(x => x.OrderDetailsId == id);
         }
 
-       
+        public IEnumerable<Product> Sort(string sort)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Write(OrderDetails ts)
         {
             var all = Loadproducts();
             all.Add(ts);
             var order = JsonConvert.SerializeObject(all);
-            File.WriteAllText(@"C:\Users\husse\source\repos\WebShop\WebData\Data\order.json", order);
+            File.WriteAllText(@"C:\Users\husse\Documents\GitHub\Web-Shop\WebData\Data\order.json", order);
         }
 
         private List<OrderDetails> Loadproducts()
         {
-            var path = @"C:\Users\husse\source\repos\WebShop\WebData\Data\order.json";
+            var path = @"C:\Users\husse\Documents\GitHub\Web-Shop\WebData\Data\order.json";
             var jsonResponse = File.ReadAllText(path);
             var tmp = JsonConvert.DeserializeObject<List<OrderDetails>>(jsonResponse);
             return tmp.ToList();
