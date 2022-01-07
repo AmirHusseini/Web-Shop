@@ -343,11 +343,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\husse\\source\\repos\\WebShop\\WebData\\WebData.csproj",
+      "projectUniqueName": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebData\\WebData.csproj",
       "projectName": "WebData",
-      "projectPath": "C:\\Users\\husse\\source\\repos\\WebShop\\WebData\\WebData.csproj",
+      "projectPath": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebData\\WebData.csproj",
       "packagesPath": "C:\\Users\\husse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\husse\\source\\repos\\WebShop\\WebData\\obj\\",
+      "outputPath": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -368,8 +368,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\WebModel.csproj": {
-              "projectPath": "C:\\Users\\husse\\source\\repos\\WebShop\\WebModel\\WebModel.csproj"
+            "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\WebModel.csproj": {
+              "projectPath": "C:\\Users\\husse\\Documents\\GitHub\\Web-Shop\\WebModel\\WebModel.csproj"
             }
           }
         }
@@ -408,7 +408,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
